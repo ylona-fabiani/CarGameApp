@@ -1,0 +1,26 @@
+body, body > header {
+    font-family: "Comic Sans MS", sans-serif;
+    text-align: center;
+}
+
+.button {
+    border-radius: 30px;
+    background: pink;
+    border: transparent;
+    padding: 10px;
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+header > h2 {
+    width: 240px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 10px;
+}
+.titre {
+    font-size: 20px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: -webkit-linear-gradient(left, violet, indigo, blue, green, yellow, orange, red);
+    color: transparent;
+}

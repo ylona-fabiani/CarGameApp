@@ -1,0 +1,9 @@
+tourner à droite
+tourner à gauche
+faire demi-tour au prochain rp
+tout droit
+
+suivre la prochaine voiture [couleur] / [marque] pendant [temps]
+
+prendre la prochaine sortie d'autoroute
+changer de conducteur
