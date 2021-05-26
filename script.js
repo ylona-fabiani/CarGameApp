@@ -73,16 +73,30 @@ class Action
 
 
 let autoroute = [
-    {bPonctuel: true, temps: 0, frequence: 15, getAction: function(){return 'Sors a la prochaine sortie'}}
+    {bPonctuel: false, temps: Math.floor(Math.random() * 300 ) + 300, frequence: 1, getAction: function(){return 'Le passager tient le volant'}, randomize: function(){this.temps = Math.floor(Math.random() * 300 ) + 300 }},
+    {bPonctuel: false, temps: Math.floor(Math.random() * 120 ) + 120, frequence: 1, getAction: function(){return 'Pas le droit de dépasser'}, randomize: function(){this.temps = Math.floor(Math.random() * 120 ) + 120 }},
+    {bPonctuel: true, temps: 0, frequence: 25, getAction: function(){return 'Sors à la prochaine sortie'}},
 ];
 let ville = [
     {bPonctuel: true, temps: 0, frequence: 25, getAction: function(){return 'Tourner à droite'}},
     {bPonctuel: true, temps: 0, frequence: 25, getAction: function(){return 'Tourner à gauche'}},
     {bPonctuel: true, temps: 0, frequence: 25, getAction: function(){return 'Tout droit pd'}},
     {bPonctuel: true, temps: 0, frequence: 2, getAction: function(){return 'Prochain rond-point : demi tour'}},
-    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Le plus PD conduit'}}
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Le plus PD conduit'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return '3e intersection tu tournes pd'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Demi-tour dès que possible'}},
+    {bPonctuel: false, temps: Math.floor(Math.random() * 300 ) + 300, frequence: 1000, getAction: function(){return 'Suivre la direction du premier panneau'}, randomize: function(){this.temps = Math.floor(Math.random() * 300 ) + 300 }},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'GPS McDo'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Rejoindre l\'autoroute'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Prochain feu vert tu cales si t\'es pas 1er sinon drag race'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Le conducteur sort pour vérifier si y\'a quelqu\'un au stop'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Le conducteur sort pour vérifier si y\'a quelqu\'un au stop'}},
+
 ];
-let commun = [new SuivreVoiture()]
+let commun = [new SuivreVoiture(),
+    {bPonctuel: false, temps: Math.floor(Math.random() * 300 ) + 300, frequence: 1, getAction: function(){return 'Le passager passe les vitesses'}, randomize: function(){this.temps = Math.floor(Math.random() * 300 ) + 300 }},
+    {bPonctuel: false, temps: Math.floor(Math.random() * 180 ) + 120, frequence: 1, getAction: function(){return 'Roule doucement'}, randomize: function(){this.temps = Math.floor(Math.random() * 180 ) + 120 }},
+]
 
 function getRandomAction()
 {
