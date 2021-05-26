@@ -20,6 +20,28 @@ class SuivreVoiture
     }
 }
 
+class Immat
+{
+    constructor()
+    {
+        this.bPonctuel = false;
+        this.temps = Math.floor(Math.random() * 600) + 300;
+        this.frequence = 100000;
+    }
+
+    randomize()
+    {
+        this.temps = Math.floor(Math.random() * 600) + 300;
+    }
+
+    getAction()
+    {
+        const lettres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const lettre = lettres.charAt(Math.floor(Math.random() *  lettres.length  ));
+        return 'Suis la première avec une immat qui commence par ' + lettre;
+    }
+}
+
 class Action
 {
 
@@ -76,6 +98,8 @@ let autoroute = [
     {bPonctuel: false, temps: Math.floor(Math.random() * 300 ) + 300, frequence: 1, getAction: function(){return 'Le passager tient le volant'}, randomize: function(){this.temps = Math.floor(Math.random() * 300 ) + 300 }},
     {bPonctuel: false, temps: Math.floor(Math.random() * 120 ) + 120, frequence: 1, getAction: function(){return 'Pas le droit de dépasser'}, randomize: function(){this.temps = Math.floor(Math.random() * 120 ) + 120 }},
     {bPonctuel: true, temps: 0, frequence: 25, getAction: function(){return 'Sors à la prochaine sortie'}},
+    {bPonctuel: true, temps: 0, frequence: 25, getAction: function(){return 'Appeler l\'aide au péage et souhaiter une bonne journée'}},
+    {bPonctuel: true, temps: Math.floor(Math.random() * 60 ) + 60, frequence: 25, getAction: function(){return 'Faire le connard'}, randomize: function(){this.temps = Math.floor(Math.random() * 60 ) + 60}},
 ];
 let ville = [
     {bPonctuel: true, temps: 0, frequence: 25, getAction: function(){return 'Tourner à droite'}},
@@ -90,12 +114,22 @@ let ville = [
     {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Rejoindre l\'autoroute'}},
     {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Prochain feu vert tu cales si t\'es pas 1er sinon drag race'}},
     {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Le conducteur sort pour vérifier si y\'a quelqu\'un au stop'}},
-    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Le conducteur sort pour vérifier si y\'a quelqu\'un au stop'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Sortir le plus vite possible de la voiture'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Partir en marche arrière au feu vert'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Demander une clope sur aux passants'}},
 
 ];
 let commun = [new SuivreVoiture(),
+              new Immat(),
     {bPonctuel: false, temps: Math.floor(Math.random() * 300 ) + 300, frequence: 1, getAction: function(){return 'Le passager passe les vitesses'}, randomize: function(){this.temps = Math.floor(Math.random() * 300 ) + 300 }},
     {bPonctuel: false, temps: Math.floor(Math.random() * 180 ) + 120, frequence: 1, getAction: function(){return 'Roule doucement'}, randomize: function(){this.temps = Math.floor(Math.random() * 180 ) + 120 }},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Faire une pause'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Un passager roule une clope'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Les passagers changent de place'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Tu arrêtes ton moteur pendant 5s'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'Mettre une musique ringarde à fond'}},
+    {bPonctuel: true, temps: 0, frequence: 1, getAction: function(){return 'SECRET ! Le passager doit retirer la clé et la jeter DANS la voiture'}},
+    {bPonctuel: true, temps: Math.floor(Math.random() * 600 ) + 300, frequence: 1, getAction: function(){return 'Faire une pause'}, randomize: function(){this.temps = Math.floor(Math.random() * 600 ) + 300 }},
 ]
 
 function getRandomAction()
